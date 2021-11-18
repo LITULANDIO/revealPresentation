@@ -1,227 +1,40 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Presentation ECMAScript 6</title>
+		<title>reveal.js</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link rel="stylesheet" href="dist_/reset.css">
-		<link rel="stylesheet" href="dist_/reveal.css">
-		<link rel="stylesheet" href="dist_/theme/black.css" id="theme">
-
-		<!-- Theme used for syntax highlighting of code -->
+		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
-
 	<body>
 		<div class="reveal">
-
-			<!-- Bienvenida-->
 			<div class="slides">
-				<section>
-					<a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
-						<img src="./assets/img/js.png" alt="reveal.js logo" width="250" style="height: 250px; margin: 0 auto 1rem auto; background: transparent;" class="demo-logo">
-					</a>
-					<p><code>{ Hello World }</code></p>
-					<h3>Worckshop <span class="yellow">ECMAScript 6</span></h3>
-					<p>
-						<small>Created by <a href="https://www.linkedin.com/in/carles-far-pierres-390160139/">Litus</a></small>
-						<small>from Viperss 🚀</small>
-					</p>
-				</section>
-
-				<!-- Bloque contenido-->
-				<section>
-					<h3 class="yellow">Contenido 📖</h3>
-					<p>
-						<ul>
-							<li>var let y const</li>
-							<li class="fragment">Template strings</li>
-							<li class="fragment">Spread operator + Bonus</li>
-							<li class="fragment">Destructuring</li>
-							<li class="fragment">Export import functions</li>
-							<li class="fragment">Arrow functions</li>
-						</ul>
-						<ul>
-							<li class="fragment">Iteradores</li>
-							<li class="fragment">Promises</li>
-							<li class="fragment">Axios</li>
-							<li class="fragment">Async await</li>
-							<li class="fragment">Ternarios</li>
-							<li style="opacity: 0"></li>
-						</ul>
-					</p>
-				</section>
-
-				<!-- Bloque var let const -->
-				<section>
-					<section>
-						<h3>Diferencias entre <code class="yellow">var,</code> <code class="yellow">let</code> & <code class="yellow">const</code></h3><br>
-						<p>La diferencia se encuentra en el scope <i>(ámbito, alcance de las variables)</i></p>
-										
-					</section>
-				
-					<section>
-						<p><code class="yellow">var</code>: define una variable global o local en una función sin importar el bloque.</p>
-						<p class="fragment"><code class="yellow">let</code>: permite declarar variables limitando su alcance al bloque, declaración o expresión donde se está utilizando.</p>
-						<p class="fragment"><code class="yellow">const</code>: es un tipo inmutable, no puede cambiar una vez definida.</p>
-
-					</section>
-				</section>
-
-				<section>
-					<h3 class="yellow">Ejemplo 1</h3>
-					<section>	
-						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-fdx26?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-
-					</section>
-				</section>
-				
-				<!--Bloque Template strings-->
-				<section data-auto-animate>
-					<h3 data-id="code-title" class="yellow">Template strings</h3>
-					<p> Es la interpolación de cadenas. Permite utilizar cualquier expresión Javascript.</p>
-					<p><small>Las partes variables de un template string se denominan "placeholders"</small></p>
-					
-					<div class="fragment">
-					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
-						const team = 'vipers';
-
-						const saludo = `Hola ${team} espero que no sea aburrido el contenido!`
-					</script></code></pre>
-					</div>
-				</section>
-
-				<section>
-					<h3 class="yellow">Ejemplo 2</h3>
-					<section>	
-						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-ts-5zynj" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-
-					</section>
-				</section>
-
-				<!--Bloque Spread operator-->
-				<section>
-					<h3><span class="yellow">Spread Operator </span>+ Bonus</h3>
-					<p style="font-size: 1.5rem">La sintaxis extendida o spread syntax permite a un elemento iterable tal como un arreglo o cadena ser expandido en lugares donde cero o más argumentos (para llamadas de  función) o elementos (para Array literales) son esperados, o a un objeto ser expandido en lugares donde cero o más pares de valores clave (para literales Tipo Objeto) son esperados.</p>
-					<div  style="width: 100%;">
-						<!-- <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax" ><img src="assets/svg/mdn.svg" width="200"/></a> -->
-						<div class="fragment">
-							<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
-								//llamadas a funciones
-								myFunction(...iterableObj);
-	
-								//para arreglos literales o cadenas de carácteres
-								[...iterableObj, '4', 'five', 6];
-	
-								//para objetos literales
-								let objClone = { ...obj };
-							</script></code></pre>
-							</div>
-						</div>
-						<div class="fragment" style="font-size: 1.5rem; display: flex; justify-content: left;"> 🔺 Ojo! No confundir con los parámetros rest </div>
-				</section>
-
-				<section>
-					<h3 class="yellow">Ejemplo 3</h3>
-					<section>	
-						<iframe data-src="https://codesandbox.io/s/vipers-ecma-object-forked-d1c11?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-
-					</section>
-				</section>
-
-				<!--Bloque destructuring-->
-				<section>
-					<h3 class="yellow">Destructuring</h3>
-					<p style="font-size: 1.5rem">Nos da la posibilidad de poder coger los datos de objetos o arrays directamente y de manera múltiple, para extraerlos a variables o constantes.</p>
-					<div class="fragment">
-						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
-							const countries = ['Barcelona', 'Paris', 'Amsterdam', 'Atenas', 'Frankfurt']
-							const [country1, country2, ...restCountries] = countries;
-
-							const film = {
-								title: 'The lord of the rings',
-								director: 'Peter Jackson',
-								duration: '557min',
-								year: '2001',
-								characters: 'Aragon, Legolas, Gimli, Gandalf, Frodo'
-							}
-
-							const { characters } = film;
-						</script></code></pre>
-						</div>
-				</section>
-
-				<section>
-					<h3 class="yellow">Ejemplo 4</h3>
-					<section>	
-						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-destruc-qgync?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-					</section>
-				</section>
-
-				<!--Bloque Export import functions-->
-				<section>
-					<h3 class="yellow">Export import functions</h3>
-					<p style="font-size: 1.5rem">Para hacer que los objetos, funciones, clases o variables estén disponibles para el mundo exterior, es tan simple como exportarlos y luego importarlos donde sea necesario en otros archivos.</p>
-				</section>
-				
-				<section>
-					<h3 class="yellow">Ejemplo 5</h3>
-					<section>	
-						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-export-import-cozep?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-					</section>
-				</section>
-
-				<!--Bloque Arrow functions-->
-				<section>
-					<h3 class="yellow">Arrow functions</h3>
-					<p style="font-size: 1.5rem">La inclusión de las arrow function se vieron influenciadas por dos factores:</p>
-					<ul>
-						<li class="fragment">Sintaxis reducida</li>
-						<li class="fragment">un this no vincuble</li>
-					</ul>
-				</section>
-
-				<section>
-					<p>Continuará...</p>
-				</section>
-
-			
-
+				<section>Slide 1</section>
+				<section>Slide 2</section>
 			</div>
-
 		</div>
 
-		<script src="dist_/reveal.js"></script>
-		<script src="plugin/zoom/zoom.js"></script>
+		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/search/search.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
 			Reveal.initialize({
-				controls: true,
-				progress: true,
-				center: true,
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
-
 		</script>
-
 	</body>
 </html>
