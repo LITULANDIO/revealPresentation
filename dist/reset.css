@@ -28,3 +28,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, main, menu, nav, section {
   display: block;
 }
+
+.yellow{
+  color: #f7d800 !important;
+}
