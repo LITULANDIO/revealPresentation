@@ -185,17 +185,55 @@
 				<section>
 					<h3 class="yellow">Arrow functions</h3>
 					<p style="font-size: 1.5rem">La inclusión de las arrow function se vieron influenciadas por dos factores:</p>
-					<ul>
+					<ul style="font-size: 1.5rem">
 						<li class="fragment">Sintaxis reducida</li>
 						<li class="fragment">un this no vincuble</li>
 					</ul>
+					<div class="fragment">
+					<p style="font-size: 1.5rem">Nos permite crear funciones con el uso del símbolo de flecha (=>), de ahí el nombre arrow function.</p>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+						// arrow function
+							const sum = (a, b) => (a + b);
+
+						// función tradicional
+							function(a, b) {
+				  				return (a + b);
+							}
+					</script></code></pre>
+					</div>
 				</section>
 
 				<section>
-					<p>Continuará...</p>
+					<h4 class="yellow">Contexto para this en una arrow function</h4>
+					<ul style="font-size: 1.5rem">
+						<li>Las funciones tradicionales no son buenas para usar como métodos debido al ámbito (scope) de this, (que se define con un “ámbito dinámico”).</li>
+					</ul>
+					<div style="font-size: 1.5rem">
+						<p>Por eso debemos pensar en alguna solución para utilizar el contexto, podemos asignar this a una variable local dentro de una función tradicional, 
+						por ejemplo creando <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							const that = this
+						</script></code></pre></p>
+						
+						<p>Otra opción es vincular el contexto con la función tradicional cada vez que se va a llamar, por ejemplo: <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							this.handleClick.bind(this).
+						</script></code></pre></p>
+
+						<p>¡O podemos usar una arrow function! su valor de this queda asociado permanentemente al valor de this de su ámbito externo inmediato</p>
+					</div>
+				</section>
+				
+				<section>
+					<h3 class="yellow">Ejemplo 6</h3>
+					<section>	
+						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-arrow-functions-6k404?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					</section>
 				</section>
 
-			
+				<section>
+					<h3>Muchas gracias por vuestra antención </h3>
+					<h3 class="yellow">CONTINUARÁ...</h3>
+
+				</section>
 
 			</div>
 
