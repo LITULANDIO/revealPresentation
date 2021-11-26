@@ -52,7 +52,7 @@
 							<li class="fragment">Arrow functions</li>
 						</ul>
 						<ul>
-							<li class="fragment">Iteradores</li>
+							<li class="fragment">Sintaxi Class</li>
 							<li class="fragment">Promises</li>
 							<li class="fragment">Axios</li>
 							<li class="fragment">Async await</li>
@@ -109,7 +109,7 @@
 					</section>
 				</section>
 
-				<!--Bloque Spread operator-->
+				<!--Bloque Spread operator vs rest-->
 				<section>
 					<h3><span class="yellow">Spread Operator </span>+ Bonus</h3>
 					<p style="font-size: 1.5rem">La sintaxis extendida o spread syntax permite a un elemento iterable tal como un arreglo o cadena ser expandido en lugares donde cero o más argumentos (para llamadas de  función) o elementos (para Array literales) son esperados, o a un objeto ser expandido en lugares donde cero o más pares de valores clave (para literales Tipo Objeto) son esperados.</p>
@@ -229,11 +229,173 @@
 					</section>
 				</section>
 
+				<!--Bloque Class-->
+				<section>
+					<h3 class="yellow">SINTAXI CLASS</h3>
+					<p style="font-size: 1.5rem">Las clases son una mejora sintáctica sobre la herencia de prototipos de Javascript</p>
+					<ul>
+						<li class="fragment" style="font-size: 1.5rem">Ofrecen una sintaxis más simple para crear objetos</li>
+						<li class="fragment" style="font-size: 1.5rem">No se utiliza la palabra function, sino la palabra class</li>
+						<li class="fragment" style="font-size: 1.5rem">Las propiedades se asignan en un método constructor(), no en la clase en si misma</li>
+					</ul>
+					<div class="fragment">
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							Class Person {
+								constructor(name, age, work, hobby){
+									this.name = name
+									this.age = age 
+									this.work = work
+									this.hobby = hobby
+								}
+								greet(){
+									console.log(`Hola ${name}`)
+								}
+							}
+
+							let person = new Person('Viper')
+							person.greet()
+
+						</script></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3 class="yellow">Ejemplo 7</h3>
+					<section>	
+						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-class-zdjm5?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					</section>
+				</section>
+
+				<!--Bloque Promises-->
+				<section>
+
+					<h3 class="yellow">Promise</h3>
+					<p style="font-size: 1.5rem">Como su propio nombre indica es una promesa, una promesa indica que cierta tarea se finalizará en algún momento. 
+					Tenemos que ver las promises como tareas que serán ejecutadas en algun momento dado. Puede representar 3 estados:</p>
+					<ul style="font-size: 1.5rem">
+						<li class="fragment">Tarea pendiente</li>
+						<li class="fragment">Tarea satisfecha</li>
+						<li class="fragment">Tarea rechazada</li>
+					</ul>
+					<div class="fragment">
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							new Promise((resolve, reject) =>{
+								setTimeout(() => console.log('cuerpo promesa'),500)
+									resolve('Promise resolve')
+									reject('Error')
+								})
+								.then(resp => console.log(resp))
+								.catch(error => console.log(error))
+
+						</script></code></pre>
+				</div>
+				</section>
+
+				<section>
+					<h3 class="yellow">Ejemplo 8</h3>
+					<section>	
+						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-promise-e43hx?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					</section>
+				</section>
+
+				<!--Bloque Async await-->
+				<section>
+					<h3 class="yellow">Async await</h3>
+					<p>Azucar sintáctico, una forma alternativa de hacer lo mismo que hace una promesa</p>
+					<div class="fragment">
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							/*Promise*/
+							const promise = () =>{
+								return new Promise((resolve, reject) => {
+									setTimeout(() => resolve(exterior), 3000)
+								})
+							}
+							promise.then((data) => console.log(data))
+
+							/*Async await*/
+							const promise = async () => {
+								const result = await exterior;
+								return result
+							}
+
+						</script></code></pre>
+				</div>
+				</section>
+
+				<section>
+					<h3 class="yellow">Ejemplo 9</h3>
+					<section>	
+						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-async-await-kro6k" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					</section>
+				</section>
+
+				<!--Bloque API Fetch - Axios-->
+				<section>
+					<h3 class="yellow">Api Fetch - Axios</h3>
+					<div style="font-size: 1.5rem"><code class="yellow">Api fetch</code> : es una funcionalidad relativamente nueva, mediante la cual podemos realizar peticiones asíncronas y obtener respuesta a las mismas de una forma sencilla</div>
+					<div class="fragment">
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+						fetch('/file.json')
+							.then(response => {
+								return response.json();
+							})
+							.then(data => {
+								console.log(data);
+							})
+							.catch(error => {
+								console.error(error);
+							});
+
+					</script></code></pre>
+				</div>
+				</section>
+
+				<section>
+					<p style="font-size: 1.5rem"><code class="yellow">Axios</code>: es una librería que a modo de cliente que nos permite hacer peticiones HTTP a un servidor, las tareas son realizadas por medio del objeto Promise() de JavaScript</p>
+					
+					 "npm install axios"
+					<div class="fragment">
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+						import axios from 'axios'
+
+						axios.get('/file.json')
+						.then(resp =>{
+							console.log(resp.data); // ex.: { user: 'Your User'}
+							console.log(resp.status); // ex.: 200
+						}); 
+
+					</script></code></pre>
+				</div>
+				</section>
+
+				<section>
+					<h3 class="yellow">Ejemplo 10</h3>
+					<section>	
+						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-fetch-api-axios-l664u?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					</section>
+				</section>
+
+				<!--Bloque Ternarios-->
+				<section>
+					<h3 class="yellow">Ternarios</h3>
+					<p style="font-size: 1.5rem">Es el único operador en JavaScript que tiene tres operandos. Este operador se usa con frecuencia como atajo para la instrucción if. Siendo un condicional simple que ejecuta una de dos instrucciones posibles dependiendo de la evaluación previa de una condición.</p>
+				</section>
+
+				<section>
+					<h3 class="yellow">Ejemplo 11</h3>
+					<section>	
+						<iframe data-src="https://codesandbox.io/s/vipers-ecma6-ternario-0n0q1?file=/src/index.js" width="100%" height="500" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					</section>
+				</section>
+
+
+
+
 				<section>
 					<h3>Muchas gracias por vuestra antención </h3>
 					<h3 class="yellow">CONTINUARÁ...</h3>
 
-					<img src="/assets/img/javascript.png" />
+					<img src="/assets/img/javascript.png" width="600"/>
 
 				</section>
 
